@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ChatMessageDto {
     private String messageId;
+    private String externalId;
     private String senderName;
     private Boolean isFromMe;
     private String text;
