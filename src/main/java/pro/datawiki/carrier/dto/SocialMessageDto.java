@@ -1,97 +1,47 @@
 package pro.datawiki.carrier.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
  * DTO for social network messages.
  * Used for communication between social_network_gateway and other services.
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SocialMessageDto {
+    @JsonProperty("messageId")
+    @JsonAlias("message_id")
     private String messageId;
+
+    @JsonProperty("channelId")
+    @JsonAlias("channel_id")
     private String channelId;
+
+    @JsonProperty("senderId")
+    @JsonAlias("sender_id")
     private String senderId;
+
+    @JsonProperty("senderName")
+    @JsonAlias("sender_name")
     private String senderName;
+
+    @JsonProperty("text")
     private String text;
+
+    @JsonProperty("timestamp")
     private LocalDateTime timestamp;
+
+    @JsonProperty("isFromMe")
+    @JsonAlias("is_from_me")
     private boolean isFromMe;
+
+    @JsonProperty("networkType")
+    @JsonAlias("network_type")
     private String networkType;
-
-    public SocialMessageDto() {
-    }
-
-    public SocialMessageDto(String messageId, String channelId, String senderId, String senderName,
-            String text, LocalDateTime timestamp, boolean isFromMe, String networkType) {
-        this.messageId = messageId;
-        this.channelId = channelId;
-        this.senderId = senderId;
-        this.senderName = senderName;
-        this.text = text;
-        this.timestamp = timestamp;
-        this.isFromMe = isFromMe;
-        this.networkType = networkType;
-    }
-
-    public String getMessageId() {
-        return messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getChannelId() {
-        return channelId;
-    }
-
-    public void setChannelId(String channelId) {
-        this.channelId = channelId;
-    }
-
-    public String getSenderId() {
-        return senderId;
-    }
-
-    public void setSenderId(String senderId) {
-        this.senderId = senderId;
-    }
-
-    public String getSenderName() {
-        return senderName;
-    }
-
-    public void setSenderName(String senderName) {
-        this.senderName = senderName;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public boolean isFromMe() {
-        return isFromMe;
-    }
-
-    public void setFromMe(boolean fromMe) {
-        isFromMe = fromMe;
-    }
-
-    public String getNetworkType() {
-        return networkType;
-    }
-
-    public void setNetworkType(String networkType) {
-        this.networkType = networkType;
-    }
 }

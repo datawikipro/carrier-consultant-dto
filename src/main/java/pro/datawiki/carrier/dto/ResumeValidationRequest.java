@@ -1,5 +1,6 @@
 package pro.datawiki.carrier.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,15 +13,18 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResumeValidationRequest {
-    @JsonProperty("session_id")
+    @JsonProperty("sessionId")
+    @JsonAlias("session_id")
     private String sessionId;
 
     @JsonProperty("title")
     private String title;
 
-    @JsonProperty("expected_description")
+    @JsonProperty("expectedDescription")
+    @JsonAlias("expected_description")
     private String expectedDescription;
 
-    @JsonProperty("expected_experience")
+    @JsonProperty("expectedExperience")
+    @JsonAlias("expected_experience")
     private List<Map<String, Object>> expectedExperience;
 }

@@ -1,6 +1,8 @@
 package pro.datawiki.carrier.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,10 +15,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ChatSummaryDto {
+    @JsonProperty("chatId")
+    @JsonAlias("chat_id")
     private String chatId;
+
+    @JsonProperty("vacancyTitle")
+    @JsonAlias("vacancy_title")
     private String vacancyTitle;
+
+    @JsonProperty("vacancyExternalId")
+    @JsonAlias("vacancy_external_id")
     private String vacancyExternalId;
+
+    @JsonProperty("companyName")
+    @JsonAlias("company_name")
     private String companyName;
+
+    @JsonProperty("status")
     private String status;
+
+    @JsonProperty("messages")
     private java.util.List<ChatMessageDto> messages;
 }
