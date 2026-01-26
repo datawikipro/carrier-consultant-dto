@@ -83,4 +83,11 @@ public class ResumeDto {
 
     @JsonProperty("languages")
     private Set<LanguageDto> languages;
+
+    @JsonProperty("status")
+    private String status;
+
+    @JsonProperty("statusChangeTime")
+    @JsonAlias("status_change_time")
+    private LocalDateTime statusChangeTime;
 }
