@@ -90,4 +90,10 @@ public class ResumeDto {
     @JsonProperty("statusChangeTime")
     @JsonAlias("status_change_time")
     private LocalDateTime statusChangeTime;
+
+    @JsonProperty("metaProfessionId")
+    @JsonAlias("meta_profession_id")
+    private Long metaProfessionId;
+
+
 }

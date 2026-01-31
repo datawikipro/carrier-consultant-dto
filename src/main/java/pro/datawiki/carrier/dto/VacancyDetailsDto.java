@@ -73,6 +73,10 @@ public class VacancyDetailsDto {
     @JsonAlias("company_is_trusted")
     private Boolean companyIsTrusted;
 
+    @JsonProperty("applicationsCount")
+    @JsonAlias("applications_count")
+    private Integer applicationsCount;
+
     @JsonProperty("requiredSkills")
     @JsonAlias("required_skills")
     private List<String> requiredSkills;
