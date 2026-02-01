@@ -29,6 +29,11 @@ public class UserAutomationDto implements Serializable {
     @JsonAlias("hh_password")
     private String hhPassword;
 
+
+    @JsonProperty("profession")
+    @JsonAlias("profession")
+    private Long profession;
+
     @JsonProperty("metaProfession")
     @JsonAlias("meta_profession")
     private Long metaProfession;
