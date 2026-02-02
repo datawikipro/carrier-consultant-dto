@@ -11,6 +11,34 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResumeValidationResponseDto implements Serializable {
-    private boolean valid;
+    private String status;
     private String message;
+    private java.util.List<String> errors;
+    private boolean valid; // Keep for backward compat if needed, or remove? I'll keep it but rely on
+                           // status.
+
+    public static ResumeValidationResponseDto valid(String message) {
+        return ResumeValidationResponseDto.builder()
+                .status("VALID")
+                .message(message)
+                .valid(true)
+                .build();
+    }
+
+    public static ResumeValidationResponseDto invalid(String message, java.util.List<String> errors) {
+        return ResumeValidationResponseDto.builder()
+                .status("INVALID")
+                .message(message)
+                .errors(errors)
+                .valid(false)
+                .build();
+    }
+
+    public static ResumeValidationResponseDto error(String message) {
+        return ResumeValidationResponseDto.builder()
+                .status("ERROR")
+                .message(message)
+                .valid(false)
+                .build();
+    }
 }
