@@ -24,4 +24,8 @@ public class SendMessageRequest implements Serializable {
     @JsonProperty("vacancyId")
     @JsonAlias("vacancy_id")
     private String vacancyId;
+
+    @JsonProperty("userId")
+    @JsonAlias("user_id")
+    private Integer userId;
 }
