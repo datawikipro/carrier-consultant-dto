@@ -14,12 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VacancyDetailsBatchResponse {
+    @Builder.Default
     @JsonProperty("vacancies")
-    private List<VacancyDetailsDto> vacancies;
+    private List<VacancyDetailsDto> vacancies = new java.util.ArrayList<>();
 
+    @Builder.Default
     @JsonProperty("failedIds")
     @JsonAlias("failed_ids")
-    private List<String> failedIds;
+    private List<String> failedIds = new java.util.ArrayList<>();
 
     @JsonProperty("error")
     private String error;
