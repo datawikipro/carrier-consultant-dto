@@ -21,9 +21,9 @@ public class VacancyDetailsBatchRequest {
     @JsonProperty("site")
     private String site;
 
-    @JsonProperty("vacancyIds")
-    @JsonAlias("vacancy_ids")
-    private List<String> vacancyIds;
+    @JsonProperty("vacancies")
+    @JsonAlias({ "vacancy_ids", "vacancyIds" })
+    private List<VacancyIdPair> vacancies;
 
     @JsonProperty("userData")
     @JsonAlias("user_data")

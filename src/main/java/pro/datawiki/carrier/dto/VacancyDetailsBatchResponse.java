@@ -19,9 +19,9 @@ public class VacancyDetailsBatchResponse {
     private List<VacancyDetailsDto> vacancies = new java.util.ArrayList<>();
 
     @Builder.Default
-    @JsonProperty("failedIds")
-    @JsonAlias("failed_ids")
-    private List<String> failedIds = new java.util.ArrayList<>();
+    @JsonProperty("failedVacancies")
+    @JsonAlias({ "failed_ids", "failedIds" })
+    private List<VacancyIdPair> failedVacancies = new java.util.ArrayList<>();
 
     @JsonProperty("error")
     private String error;

@@ -14,6 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VacancyDetailsDto {
+    /**
+     * Internal database ID of the vacancy.
+     */
+    @JsonProperty("vacancyId")
+    @JsonAlias("vacancy_id")
+    private Long vacancyId;
+
     @JsonProperty("externalId")
     @JsonAlias("external_id")
     private String externalId;
