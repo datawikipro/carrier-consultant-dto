@@ -2,6 +2,7 @@ package pro.datawiki.carrier.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import pro.datawiki.carrier.dto.enums.VacancyStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +16,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class VacancyInfo {
     @JsonProperty("id")
-    @JsonAlias({"id"})
+    @JsonAlias({ "id" })
     private Long id;
+
+    @JsonProperty("status")
+    private VacancyStatus status;
 
     @JsonProperty("externalId")
     @JsonAlias("external_id")

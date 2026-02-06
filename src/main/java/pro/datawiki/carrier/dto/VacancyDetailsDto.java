@@ -91,4 +91,7 @@ public class VacancyDetailsDto {
     @JsonProperty("metaProfession")
     @JsonAlias("meta_profession")
     private MetaProfessionDto metaProfession;
+
+    @JsonProperty("contacts")
+    private List<VacancyContactDto> contacts;
 }
