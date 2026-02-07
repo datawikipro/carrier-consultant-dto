@@ -94,4 +94,7 @@ public class VacancyDetailsDto {
 
     @JsonProperty("contacts")
     private List<VacancyContactDto> contacts;
+
+    @JsonProperty("source")
+    private String source;
 }
