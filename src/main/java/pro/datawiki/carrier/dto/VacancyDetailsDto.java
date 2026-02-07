@@ -97,4 +97,7 @@ public class VacancyDetailsDto {
 
     @JsonProperty("source")
     private String source;
+
+    @JsonProperty("sourceUrl")
+    private String sourceUrl;
 }

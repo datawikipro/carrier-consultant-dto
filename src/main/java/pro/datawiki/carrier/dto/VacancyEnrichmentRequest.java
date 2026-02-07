@@ -56,4 +56,8 @@ public class VacancyEnrichmentRequest {
     @JsonProperty("sourceName")
     @JsonAlias("source_name")
     private String sourceName;
+
+    @JsonProperty("sourceUrl")
+    @JsonAlias("source_url")
+    private String sourceUrl;
 }
