@@ -37,7 +37,7 @@ public enum VacancyStatus {
     /**
      * Vacancy published to Telegram channel (raw format).
      */
-    PUBLISHED_RAW,
+    PUBLISHED_BRONZE,
 
     /**
      * Vacancy published to Telegram channel (silver format).
