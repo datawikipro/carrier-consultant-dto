@@ -35,19 +35,7 @@ public enum VacancyStatus {
     COMPLITED,
 
     /**
-     * Vacancy published to Telegram channel (raw format).
+     * Vacancy published to Telegram channel.
      */
-    PUBLISHED_BRONZE,
-
-    /**
-     * Vacancy published to Telegram channel (silver format).
-     * This status is set when HR is pinged.
-     */
-    PUBLISHED_SILVER,
-
-    /**
-     * Vacancy published to Telegram channel (gold format).
-     * This status is set when HR confirms willingness to interview.
-     */
-    PUBLISHED_GOLD
+    PUBLISHED
 }

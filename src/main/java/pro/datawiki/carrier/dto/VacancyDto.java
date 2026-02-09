@@ -154,10 +154,6 @@ public class VacancyDto {
     @JsonAlias("meta_profession_title")
     private String metaProfessionTitle;
 
-    @JsonProperty("telegramTopicId")
-    @JsonAlias("telegram_topic_id")
-    private Integer telegramTopicId;
-
     @JsonProperty("contacts")
     private List<VacancyContactDto> contacts;
 

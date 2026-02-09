@@ -12,4 +12,7 @@ import java.io.Serializable;
 public class MetaProfessionDto implements Serializable {
     @JsonProperty("title")
     private String title;
+
+    @JsonProperty("telegramTopicId")
+    private Integer telegramTopicId;
 }
