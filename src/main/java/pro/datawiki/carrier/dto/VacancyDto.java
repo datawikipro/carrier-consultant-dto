@@ -22,6 +22,10 @@ public class VacancyDto {
     @JsonAlias("title")
     private String title;
 
+    @JsonProperty("sourceId")
+    @JsonAlias("source_id")
+    private Long sourceId;
+
     @JsonProperty("description")
     @JsonAlias("description")
     private String description;
@@ -32,7 +36,7 @@ public class VacancyDto {
 
     @JsonProperty("primarySourceSite")
     @JsonAlias("primary_source_site")
-    private String primarySourceSite;
+    private pro.datawiki.carrier.dto.enums.Site primarySourceSite;
 
     @JsonProperty("url")
     @JsonAlias("url")
@@ -154,6 +158,10 @@ public class VacancyDto {
     @JsonAlias("meta_profession_title")
     private String metaProfessionTitle;
 
+    @JsonProperty("telegramTopicId")
+    @JsonAlias("telegram_topic_id")
+    private Integer telegramTopicId;
+
     @JsonProperty("contacts")
     private List<VacancyContactDto> contacts;
 
@@ -162,7 +170,7 @@ public class VacancyDto {
         this.primaryExternalId = externalId;
     }
 
-    public void setSourceSite(String sourceSite) {
+    public void setSourceSite(pro.datawiki.carrier.dto.enums.Site sourceSite) {
         this.primarySourceSite = sourceSite;
     }
 }

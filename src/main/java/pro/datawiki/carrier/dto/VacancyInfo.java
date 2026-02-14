@@ -22,6 +22,10 @@ public class VacancyInfo {
     @JsonProperty("status")
     private VacancyStatus status;
 
+    @JsonProperty("sourceId")
+    @JsonAlias("source_id")
+    private Long sourceId;
+
     @JsonProperty("externalId")
     @JsonAlias("external_id")
     private String externalId;
@@ -62,7 +66,19 @@ public class VacancyInfo {
     @JsonAlias("applications_count")
     private Integer applicationsCount;
 
+    @JsonProperty("rawText")
+    @JsonAlias("raw_text")
+    private String rawText;
+
     @JsonProperty("metaProfession")
     @JsonAlias("meta_profession")
     private MetaProfessionDto metaProfession;
+
+    @JsonProperty("rawTelegramMessage")
+    @JsonAlias("raw_telegram_message")
+    private String rawTelegramMessage;
+
+    @JsonProperty("downloadedPages")
+    @JsonAlias("downloaded_pages")
+    private java.util.Map<String, String> downloadedPages;
 }
