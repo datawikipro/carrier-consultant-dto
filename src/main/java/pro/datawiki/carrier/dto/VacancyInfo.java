@@ -81,4 +81,16 @@ public class VacancyInfo {
     @JsonProperty("downloadedPages")
     @JsonAlias("downloaded_pages")
     private java.util.Map<String, String> downloadedPages;
+
+    @JsonProperty("requirements")
+    private String requirements;
+
+    @JsonProperty("responsibilities")
+    private String responsibilities;
+
+    @JsonProperty("conditions")
+    private String conditions;
+
+    @JsonProperty("remains")
+    private String remains;
 }

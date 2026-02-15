@@ -35,8 +35,11 @@ public enum Site {
             return HIRIFYME;
         if (text.equalsIgnoreCase("linkedin"))
             return LINKEDIN;
+        if (text.equalsIgnoreCase("telegram"))
+            return TELEGRAM;
         if (text.equalsIgnoreCase("habr"))
             return HABR;
+
 
         return null;
     }
