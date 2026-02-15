@@ -2,6 +2,7 @@ package pro.datawiki.carrier.dto;
 
 import lombok.*;
 import java.util.List;
+import pro.datawiki.carrier.dto.enums.SourceType;
 
 @Data
 @Builder
@@ -11,11 +12,7 @@ public class VacancySourceDto {
     private Long id;
     private String name;
     private String url;
-    private String sourceType;
+    private SourceType sourceType;
     private String details;
     private List<ParsingRuleDto> parsingRules;
-
-    public String getName() {
-        return name;
-    }
 }
