@@ -30,6 +30,18 @@ public enum VacancyStatus {
     PARSED,
 
     /**
+     * Profession identified but no meta-category assigned yet.
+     * Awaiting categorization by carrier-consultant-llm-parse.
+     */
+    PENDING_CATEGORY,
+
+    /**
+     * Unstructured vacancy — regex parsers could not extract fields.
+     * Awaiting LLM field extraction by carrier-consultant-llm-parse.
+     */
+    PENDING_LLM,
+
+    /**
      * All necessary actions (e.g., application) are completed for this vacancy.
      */
     COMPLITED,
@@ -37,5 +49,10 @@ public enum VacancyStatus {
     /**
      * Vacancy published to Telegram channel.
      */
-    PUBLISHED
+    PUBLISHED,
+
+    /**
+     * Vacancy was skipped during reprocessing (no changes detected).
+     */
+    SKIPPED
 }

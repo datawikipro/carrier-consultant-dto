@@ -74,6 +74,18 @@ public class VacancyInfo {
     @JsonAlias("meta_profession")
     private MetaProfessionDto metaProfession;
 
+    @JsonProperty("metaProfessionId")
+    @JsonAlias("meta_profession_id")
+    private Long metaProfessionId;
+
+    @JsonProperty("metaProfessionTitle")
+    @JsonAlias("meta_profession_title")
+    private String metaProfessionTitle;
+
+    @JsonProperty("telegramTopicId")
+    @JsonAlias("telegram_topic_id")
+    private Integer telegramTopicId;
+
     @JsonProperty("rawTelegramMessage")
     @JsonAlias("raw_telegram_message")
     private String rawTelegramMessage;
@@ -93,4 +105,25 @@ public class VacancyInfo {
 
     @JsonProperty("remains")
     private String remains;
+
+    @JsonProperty("contacts")
+    private String contacts;
+
+    @JsonProperty("aboutCompany")
+    private String aboutCompany;
+
+    @JsonProperty("structuredContacts")
+    private java.util.List<VacancyContactDto> structuredContacts;
+
+    @JsonProperty("createdAt")
+    @JsonAlias("created_at")
+    private java.time.LocalDateTime createdAt;
+
+    @JsonProperty("macroRegionIds")
+    @JsonAlias("macro_region_ids")
+    private java.util.List<Long> macroRegionIds;
+
+    @JsonProperty("vacancyCountries")
+    @JsonAlias("vacancy_countries")
+    private java.util.List<VacancyCountryDto> vacancyCountries;
 }

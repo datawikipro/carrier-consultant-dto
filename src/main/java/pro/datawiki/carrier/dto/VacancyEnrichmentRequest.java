@@ -60,4 +60,20 @@ public class VacancyEnrichmentRequest {
     @JsonProperty("sourceUrl")
     @JsonAlias("source_url")
     private String sourceUrl;
+
+    @JsonProperty("salaryFrom")
+    @JsonAlias("salary_from")
+    private Integer salaryFrom;
+
+    @JsonProperty("salaryTo")
+    @JsonAlias("salary_to")
+    private Integer salaryTo;
+
+    @JsonProperty("salaryCurrency")
+    @JsonAlias("salary_currency")
+    private String salaryCurrency;
+
+    @JsonProperty("professionId")
+    @JsonAlias("profession_id")
+    private Long professionId;
 }

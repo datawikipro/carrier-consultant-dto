@@ -69,7 +69,15 @@ public class ResumeVacancyPairDto {
     @JsonAlias("source_site")
     private String sourceSite;
 
+    @JsonProperty("sourceUrl")
+    @JsonAlias("source_url")
+    private String sourceUrl;
+
     @JsonProperty("pdfFilePath")
     @JsonAlias("pdf_file_path")
     private String pdfFilePath;
+
+    @JsonProperty("telegramPhoneNumber")
+    @JsonAlias("telegram_phone_number")
+    private String telegramPhoneNumber;
 }

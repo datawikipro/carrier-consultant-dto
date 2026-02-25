@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -95,5 +96,44 @@ public class ResumeDto {
     @JsonAlias("meta_profession_id")
     private Long metaProfessionId;
 
+    @JsonProperty("telegramPhoneNumber")
+    @JsonAlias("telegram_phone_number")
+    private String telegramPhoneNumber;
+
+    /** ID of country where the applicant currently lives */
+    @JsonProperty("currentCountryId")
+    @JsonAlias("current_country_id")
+    private Long currentCountryId;
+
+    /** Display name of currentCountry */
+    @JsonProperty("currentCountryName")
+    private String currentCountryName;
+
+    /** ISO code of currentCountry */
+    @JsonProperty("currentCountryIso")
+    private String currentCountryIso;
+
+    /** City of current residence */
+    @JsonProperty("currentCity")
+    @JsonAlias("current_city")
+    private String currentCity;
+
+    /** IDs of countries to apply to */
+    @JsonProperty("targetCountryIds")
+    @JsonAlias("target_country_ids")
+    private List<Long> targetCountryIds;
+
+    /** Full country objects */
+    @JsonProperty("targetCountries")
+    private Set<CountryDto> targetCountries;
+
+    /** IDs of macro-regions to target */
+    @JsonProperty("targetMacroRegionIds")
+    @JsonAlias("target_macro_region_ids")
+    private List<Long> targetMacroRegionIds;
+
+    /** Full macro-region objects */
+    @JsonProperty("targetMacroRegions")
+    private Set<MacroRegionDto> targetMacroRegions;
 
 }

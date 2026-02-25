@@ -15,4 +15,9 @@ public class VacancyPublicationEvent implements Serializable {
     private VacancyDto vacancy;
     private String medal; // e.g., "🥉"
     private VacancyStatus targetStatus;
+
+    // Meta-profession info for topic creation/routing
+    private Long metaProfessionId;
+    private String metaProfessionTitle;
+    private Integer telegramTopicId;
 }

@@ -18,6 +18,9 @@ public class VacancyDto {
     @JsonAlias("id")
     private Long id;
 
+    @JsonProperty("status")
+    private pro.datawiki.carrier.dto.enums.VacancyStatus status;
+
     @JsonProperty("title")
     @JsonAlias("title")
     private String title;
@@ -162,8 +165,35 @@ public class VacancyDto {
     @JsonAlias("telegram_topic_id")
     private Integer telegramTopicId;
 
+    @JsonProperty("requirements")
+    private String requirements;
+
+    @JsonProperty("responsibilities")
+    private String responsibilities;
+
+    @JsonProperty("conditions")
+    private String conditions;
+
+    @JsonProperty("remains")
+    private String remains;
+
+    @JsonProperty("aboutCompany")
+    private String aboutCompany;
+
     @JsonProperty("contacts")
     private List<VacancyContactDto> contacts;
+
+    @JsonProperty("vacancyCountries")
+    @JsonAlias("vacancy_countries")
+    private List<VacancyCountryDto> vacancyCountries;
+
+    @JsonProperty("macroRegionIds")
+    @JsonAlias("macro_region_ids")
+    private List<Long> macroRegionIds;
+
+    @JsonProperty("macroRegionNames")
+    @JsonAlias("macro_region_names")
+    private List<String> macroRegionNames;
 
     // Compatibility setters
     public void setExternalId(String externalId) {

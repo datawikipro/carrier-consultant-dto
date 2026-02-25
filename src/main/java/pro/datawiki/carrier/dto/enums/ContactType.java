@@ -15,6 +15,7 @@ public enum ContactType {
     VIBER,
     FACEBOOK,
     INSTAGRAM,
-    UNPARSED
+    SITE,
+    UNPARSED,
+    OTHER
 };
-
