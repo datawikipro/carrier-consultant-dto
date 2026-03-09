@@ -38,6 +38,10 @@ public class VacancyDetailsDto {
     @JsonProperty("description")
     private String description;
 
+    @JsonProperty("descriptionHtml")
+    @JsonAlias("description_html")
+    private String descriptionHtml;
+
     @JsonProperty("salaryFrom")
     @JsonAlias("salary_from")
     private Integer salaryFrom;
@@ -94,6 +98,10 @@ public class VacancyDetailsDto {
 
     @JsonProperty("contacts")
     private List<VacancyContactDto> contacts;
+
+    @JsonProperty("aboutCompany")
+    @JsonAlias("about_company")
+    private String aboutCompany;
 
     @JsonProperty("source")
     private String source;

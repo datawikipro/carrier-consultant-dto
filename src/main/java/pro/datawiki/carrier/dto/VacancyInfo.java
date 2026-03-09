@@ -58,6 +58,10 @@ public class VacancyInfo {
     @JsonProperty("description")
     private String description;
 
+    @JsonProperty("descriptionHtml")
+    @JsonAlias("description_html")
+    private String descriptionHtml;
+
     @JsonProperty("companyRating")
     @JsonAlias("company_rating")
     private Double companyRating;
@@ -126,4 +130,12 @@ public class VacancyInfo {
     @JsonProperty("vacancyCountries")
     @JsonAlias("vacancy_countries")
     private java.util.List<VacancyCountryDto> vacancyCountries;
+
+    @JsonProperty("parserClassName")
+    @JsonAlias("parser_class_name")
+    private String parserClassName;
+
+    @JsonProperty("requiredSkills")
+    @JsonAlias("required_skills")
+    private java.util.List<String> requiredSkills;
 }

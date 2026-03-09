@@ -12,9 +12,9 @@ public class SyncRequest implements Serializable {
     @JsonAlias("session_id")
     private String sessionId;
 
-    @JsonProperty("userId")
-    @JsonAlias("user_id")
-    private String userId;
+    @JsonProperty("agentId")
+    @JsonAlias("agent_id")
+    private String agentId;
 
     @JsonProperty("userData")
     @JsonAlias("user_data")

@@ -25,6 +25,10 @@ public class ResumeVacancyPairDto {
     @JsonAlias("resume_id")
     private Long resumeId;
 
+    @JsonProperty("agentId")
+    @JsonAlias("agent_id")
+    private Long agentId;
+
     @JsonProperty("userId")
     @JsonAlias("user_id")
     private Long userId;
@@ -49,17 +53,17 @@ public class ResumeVacancyPairDto {
     @JsonAlias("subscription_plan")
     private String subscriptionPlan;
 
-    @JsonProperty("userFirstName")
-    @JsonAlias("user_first_name")
-    private String userFirstName;
+    @JsonProperty("agentFirstName")
+    @JsonAlias("agent_first_name")
+    private String agentFirstName;
 
-    @JsonProperty("userLastName")
-    @JsonAlias("user_last_name")
-    private String userLastName;
+    @JsonProperty("agentLastName")
+    @JsonAlias("agent_last_name")
+    private String agentLastName;
 
-    @JsonProperty("userMiddleName")
-    @JsonAlias("user_middle_name")
-    private String userMiddleName;
+    @JsonProperty("agentMiddleName")
+    @JsonAlias("agent_middle_name")
+    private String agentMiddleName;
 
     @JsonProperty("vacancyTitle")
     @JsonAlias("vacancy_title")

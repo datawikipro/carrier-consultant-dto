@@ -32,6 +32,10 @@ public class ChatSummaryDto {
     @JsonProperty("status")
     private String status;
 
+    @JsonProperty("hasUnreadMessages")
+    @JsonAlias("has_unread_messages")
+    private Boolean hasUnreadMessages;
+
     @JsonProperty("messages")
     private java.util.List<ChatMessageDto> messages;
 }

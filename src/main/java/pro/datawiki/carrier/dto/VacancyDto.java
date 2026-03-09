@@ -153,6 +153,10 @@ public class VacancyDto {
     @JsonAlias("application_date")
     private LocalDateTime applicationDate;
 
+    @JsonProperty("applicationCount")
+    @JsonAlias("application_count")
+    private Integer applicationCount;
+
     @JsonProperty("metaProfessionId")
     @JsonAlias("meta_profession_id")
     private Long metaProfessionId;

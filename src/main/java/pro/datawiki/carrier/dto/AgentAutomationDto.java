@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserAutomationDto implements Serializable {
+public class AgentAutomationDto implements Serializable {
     @JsonProperty("id")
     private Long id;
 
@@ -28,7 +28,6 @@ public class UserAutomationDto implements Serializable {
     @JsonProperty("hhPassword")
     @JsonAlias("hh_password")
     private String hhPassword;
-
 
     @JsonProperty("profession")
     @JsonAlias("profession")
