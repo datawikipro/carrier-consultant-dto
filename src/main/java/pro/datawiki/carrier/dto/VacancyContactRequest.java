@@ -17,15 +17,15 @@ import pro.datawiki.carrier.dto.enums.ContactType;
 @Builder
 public class VacancyContactRequest {
     @JsonProperty("contactType")
-    @JsonAlias("contact_type")
+    @JsonAlias({ "contact_type", "type" })
     private ContactType contactType;
 
     @JsonProperty("contactValue")
-    @JsonAlias("contact_value")
+    @JsonAlias({ "contact_value", "value" })
     private String contactValue;
 
     @JsonProperty("contactName")
-    @JsonAlias("contact_name")
+    @JsonAlias({ "contact_name", "name" })
     private String contactName;
 
     @JsonProperty("contactPosition")

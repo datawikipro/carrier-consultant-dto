@@ -138,4 +138,47 @@ public class VacancyInfo {
     @JsonProperty("requiredSkills")
     @JsonAlias("required_skills")
     private java.util.List<String> requiredSkills;
+
+    @JsonProperty("tags")
+    private java.util.List<String> tags;
+
+    public VacancyInfo copyWithStatus(VacancyStatus newStatus) {
+        VacancyInfo copy = new VacancyInfo();
+        copy.setId(this.id);
+        copy.setStatus(newStatus);
+        copy.setSourceId(this.sourceId);
+        copy.setExternalId(this.externalId);
+        copy.setTitle(this.title);
+        copy.setCompanyName(this.companyName);
+        copy.setCompanyUrl(this.companyUrl);
+        copy.setUrl(this.url);
+        copy.setSalaryFrom(this.salaryFrom);
+        copy.setSalaryTo(this.salaryTo);
+        copy.setLocation(this.location);
+        copy.setDescription(this.description);
+        copy.setDescriptionHtml(this.descriptionHtml);
+        copy.setCompanyRating(this.companyRating);
+        copy.setApplicationsCount(this.applicationsCount);
+        copy.setRawText(this.rawText);
+        copy.setMetaProfession(this.metaProfession);
+        copy.setMetaProfessionId(this.metaProfessionId);
+        copy.setMetaProfessionTitle(this.metaProfessionTitle);
+        copy.setTelegramTopicId(this.telegramTopicId);
+        copy.setRawTelegramMessage(this.rawTelegramMessage);
+        copy.setDownloadedPages(this.downloadedPages != null ? new java.util.HashMap<>(this.downloadedPages) : null);
+        copy.setRequirements(this.requirements);
+        copy.setResponsibilities(this.responsibilities);
+        copy.setConditions(this.conditions);
+        copy.setRemains(this.remains);
+        copy.setContacts(this.contacts);
+        copy.setAboutCompany(this.aboutCompany);
+        copy.setStructuredContacts(this.structuredContacts != null ? new java.util.ArrayList<>(this.structuredContacts) : null);
+        copy.setCreatedAt(this.createdAt);
+        copy.setMacroRegionIds(this.macroRegionIds != null ? new java.util.ArrayList<>(this.macroRegionIds) : null);
+        copy.setVacancyCountries(this.vacancyCountries != null ? new java.util.ArrayList<>(this.vacancyCountries) : null);
+        copy.setParserClassName(this.parserClassName);
+        copy.setRequiredSkills(this.requiredSkills != null ? new java.util.ArrayList<>(this.requiredSkills) : null);
+        copy.setTags(this.tags != null ? new java.util.ArrayList<>(this.tags) : null);
+        return copy;
+    }
 }

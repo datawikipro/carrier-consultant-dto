@@ -15,5 +15,9 @@ public class ResumeContentRequest implements Serializable {
     @JsonAlias("resume_id")
     private String resumeId;
 
+    @JsonProperty("userData")
+    @JsonAlias("user_data")
+    private UserDataDto userData;
+
     private String site;
 }

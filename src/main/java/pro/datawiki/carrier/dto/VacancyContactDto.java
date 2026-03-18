@@ -39,6 +39,9 @@ public class VacancyContactDto {
     @JsonProperty("updatedAt")
     private java.time.LocalDateTime updatedAt;
 
+    @JsonProperty("isRecommendation")
+    private Boolean isRecommendation;
+
     // Compatibility getters/setters for mapped fields if names differ
     public ContactType getContactType() {
         return type;

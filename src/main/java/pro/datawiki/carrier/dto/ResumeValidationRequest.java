@@ -27,4 +27,8 @@ public class ResumeValidationRequest {
     @JsonProperty("expectedExperience")
     @JsonAlias("expected_experience")
     private List<ExpectedExperienceDto> expectedExperience;
+
+    @JsonProperty("userData")
+    @JsonAlias("user_data")
+    private UserDataDto userData;
 }
