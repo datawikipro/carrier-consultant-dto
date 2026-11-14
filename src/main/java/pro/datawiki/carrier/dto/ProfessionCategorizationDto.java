@@ -19,4 +19,10 @@ public class ProfessionCategorizationDto {
 
     @JsonProperty("meta_profession_id")
     private Long metaProfessionId;
+
+    @JsonProperty("track_id")
+    private String trackId;
+
+    @JsonProperty("qdrant_collection")
+    private String qdrantCollection;
 }

@@ -1,61 +1,45 @@
 package pro.datawiki.carrier.dto.track;
 
-import java.util.List;
 import java.util.Map;
 
 /**
- * Domain interface representing a career profession track (taxonomy, skill vectors,
- * and interview rubric).
+ * Sacred CareerTrack polymorphic domain contract for CareerLab ecosystem.
+ * Defines taxonomy, Qdrant vector space, skill clusters, rubrics, and LLM prompt templates.
  */
 public interface CareerTrack {
 
-    /**
-     * Unique uppercase code (e.g. "BACKEND_JAVA", "DATA_SCIENCE", "FRONTEND", "DEVOPS").
-     */
-    String getCode();
+    String getTrackId();
 
-    /**
-     * Canonical hyphenated slug (e.g. "backend-java", "data-science", "frontend").
-     */
-    String getSlug();
-
-    /**
-     * Display name (e.g. "Java Backend Developer").
-     */
     String getDisplayName();
 
-    /**
-     * Collection name in Qdrant vector database.
-     */
-    String getVectorCollectionName();
+    String getQdrantCollectionName();
 
-    /**
-     * Vector embedding dimension (e.g. 1536 for OpenAI / 768 for BERT / 384 for MiniLM).
-     */
     int getVectorDimension();
 
-    /**
-     * Mandatory hard skill keywords for semantic matching.
-     */
-    List<String> getCoreSkillKeywords();
+    SkillClusters getSkillClusters();
 
-    /**
-     * Tooling and ecosystem technologies (frameworks, databases, CI/CD).
-     */
-    List<String> getToolingKeywords();
+    Map<String, GradeRubric> getGradeRubrics();
 
-    /**
-     * Stop keywords that disqualify candidates from this track.
-     */
-    List<String> getStopKeywords();
+    default GradeRubric getGradeRubric(String grade) {
+        if (grade == null) {
+            return null;
+        }
+        return getGradeRubrics().get(grade.toUpperCase());
+    }
 
-    /**
-     * System prompt template for the AI interviewer conducting mock interviews.
-     */
-    String getInterviewSystemPrompt();
+    TrackPromptTemplates getPromptTemplates();
 
-    /**
-     * Salary brackets by seniority level (Gross RUB/month).
-     */
-    Map<String, Integer> getSalaryBenchmarks();
+    boolean matches(String professionTitle);
+
+    default CareerTrackMetadataDto toMetadataDto() {
+        return CareerTrackMetadataDto.builder()
+                .trackId(getTrackId())
+                .displayName(getDisplayName())
+                .qdrantCollectionName(getQdrantCollectionName())
+                .vectorDimension(getVectorDimension())
+                .skillClusters(getSkillClusters())
+                .gradeRubrics(getGradeRubrics())
+                .promptTemplates(getPromptTemplates())
+                .build();
+    }
 }
