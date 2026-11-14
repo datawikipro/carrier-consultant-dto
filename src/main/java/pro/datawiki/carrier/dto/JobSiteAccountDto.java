@@ -29,4 +29,8 @@ public class JobSiteAccountDto {
     @JsonProperty("isActive")
     @JsonAlias("is_active")
     private Boolean isActive;
+
+    @JsonProperty("sessionCookies")
+    @JsonAlias("session_cookies")
+    private String sessionCookies;
 }

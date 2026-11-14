@@ -1,0 +1,42 @@
+package pro.datawiki.carrier.dto;
+
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.io.Serializable;
+
+/**
+ * @deprecated Use {@link AgentAutomationDto} instead. Kept for backward compatibility.
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserAutomationDto implements Serializable {
+    @JsonProperty("id")
+    private Long id;
+
+    @JsonProperty("email")
+    private String email;
+
+    @JsonProperty("userType")
+    @JsonAlias("user_type")
+    private String userType;
+
+    @JsonProperty("hhLogin")
+    @JsonAlias("hh_login")
+    private String hhLogin;
+
+    @JsonProperty("hhPassword")
+    @JsonAlias("hh_password")
+    private String hhPassword;
+
+    @JsonProperty("profession")
+    @JsonAlias("profession")
+    private Long profession;
+
+    @JsonProperty("metaProfession")
+    @JsonAlias("meta_profession")
+    private Long metaProfession;
+}

@@ -136,4 +136,7 @@ public class ResumeDto {
     @JsonProperty("targetMacroRegions")
     private Set<MacroRegionDto> targetMacroRegions;
 
+    @JsonProperty("pdfFilePath")
+    @JsonAlias("pdf_file_path")
+    private String pdfFilePath;
 }

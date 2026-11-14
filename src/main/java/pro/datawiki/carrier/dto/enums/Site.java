@@ -10,6 +10,8 @@ public enum Site {
     LINKEDIN("linkedin.com"),
     HABR("career.habr.ru"),
     SUPERJOB("superjob.ru"),
+    GEEKJOB("geekjob.ru"),
+    EMAIL("email"),
     TELEGRAM("telegram");
 
     @Getter(onMethod_ = @JsonValue)

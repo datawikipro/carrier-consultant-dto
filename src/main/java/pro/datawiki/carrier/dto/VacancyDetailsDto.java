@@ -35,6 +35,18 @@ public class VacancyDetailsDto {
     @JsonAlias("company_name")
     private String companyName;
 
+    @JsonProperty("companyExternalId")
+    @JsonAlias("company_external_id")
+    private String companyExternalId;
+
+    @JsonProperty("companyUrl")
+    @JsonAlias("company_url")
+    private String companyUrl;
+
+    @JsonProperty("companyLogoUrl")
+    @JsonAlias("company_logo_url")
+    private String companyLogoUrl;
+
     @JsonProperty("description")
     private String description;
 

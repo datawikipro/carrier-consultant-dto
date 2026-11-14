@@ -13,5 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class AuthStatusDto implements Serializable {
     private boolean authorized;
+    private boolean reloginRequired;
+    private String sessionCookies;
     private String error;
 }
