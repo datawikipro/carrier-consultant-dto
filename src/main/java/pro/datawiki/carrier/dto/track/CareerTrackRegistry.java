@@ -20,12 +20,14 @@ public final class CareerTrackRegistry {
         CareerTrack frontend = new FrontendTrack();
         CareerTrack devops = new DevOpsTrack();
         CareerTrack pm = new ProductManagementTrack();
+        CareerTrack arch = new SystemArchitectureTrack();
 
         TRACKS.put(backend.getTrackId(), backend);
         TRACKS.put(ds.getTrackId(), ds);
         TRACKS.put(frontend.getTrackId(), frontend);
         TRACKS.put(devops.getTrackId(), devops);
         TRACKS.put(pm.getTrackId(), pm);
+        TRACKS.put(arch.getTrackId(), arch);
 
         DEFAULT_TRACK = backend;
     }
