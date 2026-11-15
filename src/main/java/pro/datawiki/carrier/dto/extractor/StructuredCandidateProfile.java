@@ -68,7 +68,15 @@ public class StructuredCandidateProfile implements Serializable {
     public static class StructuredExperienceItem implements Serializable {
         private String companyName;
         private String position;
+        private String department;
+        private String city;
         private String period;
+        private Integer startYear;
+        private Integer startMonth;
+        private Integer endYear;
+        private Integer endMonth;
+        @Builder.Default
+        private Boolean isCurrent = false;
         private String description;
         @Builder.Default
         private Set<String> extractedSkills = new LinkedHashSet<>();

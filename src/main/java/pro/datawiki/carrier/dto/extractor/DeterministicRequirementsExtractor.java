@@ -101,8 +101,8 @@ public class DeterministicRequirementsExtractor {
         addSkill("Scala", "\\bscala\\b", "HARD");
         addSkill("Go", "\\b(?:golang|go)\\b(?!\\s*to\\b)", "HARD");
         addSkill("Python", "\\bpython\\b", "HARD");
-        addSkill("C++", "\\bc\\+\\+\\b", "HARD");
-        addSkill("C#", "\\bc#|\\bcsharp\\b", "HARD");
+        addSkill("C++", "(?ui)\\bc\\+\\+(?!\\w)|\\bcpp\\b", "HARD");
+        addSkill("C#", "(?ui)\\bc#(?!\\w)|\\bcsharp\\b", "HARD");
         addSkill("Rust", "\\brust\\b", "HARD");
         addSkill("TypeScript", "\\btypescript\\b|\\bts\\b", "HARD");
         addSkill("JavaScript", "\\bjavascript\\b|\\bjs\\b", "HARD");
@@ -380,6 +380,10 @@ public class DeterministicRequirementsExtractor {
 
         // Game Development
         addSkill("Game Development", "(?ui)game\\s+development|gamedev|разработк[а-я]+\\s+игр", "HARD");
+        addSkill("DirectX", "(?ui)\\bdirectx(?:\\s*\\d+)?\\b|\\bdx\\d{1,2}\\b", "HARD");
+        addSkill("OpenGL", "(?ui)\\bopengl\\b", "HARD");
+        addSkill("Vulkan", "(?ui)\\bvulkan\\b", "HARD");
+        addSkill("WordPress", "(?ui)\\bwordpress\\b", "TOOL");
         addSkill("Unity", "\\bunity(?:3d)?\\b", "TOOL");
         addSkill("Unreal Engine", "\\bunreal(?:\\s+engine)?\\b|\\bue[45]\\b", "TOOL");
         addSkill("Godot", "\\bgodot\\b", "TOOL");
@@ -444,14 +448,13 @@ public class DeterministicRequirementsExtractor {
         result.aboutCompany(aboutText.isBlank() ? null : aboutText.trim());
 
         // 3. Extract skills from the entire text and specifically from requirements
-        Set<String> allSkills = new LinkedHashSet<>();
+        Set<String> allSkills = extractSkills(plainText);
         Set<String> hardSkills = new LinkedHashSet<>();
         Set<String> tooling = new LinkedHashSet<>();
         Set<String> softSkills = new LinkedHashSet<>();
 
         for (SkillDefinition skill : SKILL_TAXONOMY) {
-            if (skill.pattern().matcher(plainText).find()) {
-                allSkills.add(skill.canonicalName());
+            if (allSkills.contains(skill.canonicalName())) {
                 switch (skill.category()) {
                     case "HARD" -> hardSkills.add(skill.canonicalName());
                     case "TOOL" -> tooling.add(skill.canonicalName());
@@ -478,6 +481,22 @@ public class DeterministicRequirementsExtractor {
         result.grade(detectGrade(vacancyTitle, plainText));
 
         return result.build();
+    }
+
+    /**
+     * Fast extraction of all canonical skills from arbitrary text snippet (job experience, resume section, vacancy).
+     */
+    public static Set<String> extractSkills(String plainText) {
+        Set<String> skills = new LinkedHashSet<>();
+        if (plainText == null || plainText.isBlank()) {
+            return skills;
+        }
+        for (SkillDefinition def : SKILL_TAXONOMY) {
+            if (def.pattern().matcher(plainText).find()) {
+                skills.add(def.canonicalName());
+            }
+        }
+        return skills;
     }
 
     private static String cleanHtml(String html) {
