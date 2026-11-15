@@ -126,4 +126,9 @@ public class HhRuJobSite extends AbstractJobSite {
     public String getApplyButtonSelector() {
         return "[data-qa='vacancy-response-link-top'], [data-qa='vacancy-response-link-bottom']";
     }
+
+    @Override
+    public String getPublicationTimeSelector() {
+        return "time[dateTime], [data-qa='vacancy-view-publication-date'] time, time";
+    }
 }

@@ -152,4 +152,9 @@ public interface JobSite {
      * DOM selector for the apply / respond button.
      */
     String getApplyButtonSelector();
+
+    /**
+     * DOM selector for vacancy publication timestamp element (<time dateTime="...">).
+     */
+    String getPublicationTimeSelector();
 }

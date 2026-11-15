@@ -86,6 +86,11 @@ public abstract class AbstractJobSite implements JobSite {
     }
 
     @Override
+    public String getPublicationTimeSelector() {
+        return "time[dateTime], time";
+    }
+
+    @Override
     public String toString() {
         return getCode() + " (" + getDisplayName() + ")";
     }
