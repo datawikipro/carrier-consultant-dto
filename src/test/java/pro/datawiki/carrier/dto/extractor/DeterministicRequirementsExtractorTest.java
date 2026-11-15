@@ -115,4 +115,27 @@ public class DeterministicRequirementsExtractorTest {
         assertTrue(profile.getAllSkills().contains("Spark"));
         assertTrue(profile.getAllSkills().contains("Airflow"));
     }
+
+    @Test
+    void testExtractCompactHtmlVacancyWithoutNewlines() {
+        String compactHtml = "<p>Компания SuperCorp ищет специалиста.</p><h3>Обязанности:</h3><ul><li>Разработка микросервисов на Java 21</li><li>Интеграция с Apache Kafka</li></ul><h3>Требования:</h3><ul><li>Опыт от 3 до 5 лет коммерческой разработки</li><li>Spring Boot и PostgreSQL</li></ul><h3>Условия:</h3><ul><li>Удаленная работа (remote)</li><li>ДМС</li></ul>";
+
+        StructuredVacancyRequirements result = DeterministicRequirementsExtractor.extract(compactHtml, "Java Developer");
+
+        assertNotNull(result);
+        assertEquals(3.0, result.getExperienceMinYears());
+        assertEquals(5.0, result.getExperienceMaxYears());
+        assertTrue(result.getRemoteAvailable());
+        assertEquals("remote", result.getWorkFormat());
+
+        // Both sections must be recognized even without newlines in input HTML!
+        assertFalse(result.getResponsibilities().isEmpty(), "Responsibilities should not be empty");
+        assertFalse(result.getRequirements().isEmpty(), "Requirements should not be empty");
+        assertFalse(result.getConditions().isEmpty(), "Conditions should not be empty");
+
+        assertTrue(result.getAllExtractedSkills().contains("Java"));
+        assertTrue(result.getAllExtractedSkills().contains("Kafka"));
+        assertTrue(result.getAllExtractedSkills().contains("Spring Boot"));
+        assertTrue(result.getAllExtractedSkills().contains("PostgreSQL"));
+    }
 }

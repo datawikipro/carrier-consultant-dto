@@ -19,8 +19,9 @@ public class DeterministicRequirementsExtractor {
     private record MatchPos(String section, int start, int end) {}
 
     // HTML / Text cleanup patterns
-    private static final Pattern HTML_TAG_PATTERN = Pattern.compile("<[^>]+>");
-    private static final Pattern HTML_ENTITY_BR = Pattern.compile("<br\\s*/?>", Pattern.CASE_INSENSITIVE);
+    private static final Pattern BLOCK_TAG_PATTERN = Pattern.compile("(?ui)</?(?:p|div|h[1-6]|li|ul|ol|tr|blockquote)[^>]*>");
+    private static final Pattern BR_TAG_PATTERN = Pattern.compile("(?ui)<br\\s*/?>");
+    private static final Pattern INLINE_TAG_PATTERN = Pattern.compile("<[^>]+>");
     private static final Pattern MULTI_NEWLINE_PATTERN = Pattern.compile("(?:\\r?\\n[ \\t]*){2,}");
     private static final Pattern MULTI_SPACE_PATTERN = Pattern.compile("[ \\t]+");
     private static final Pattern BULLET_PREFIX_PATTERN = Pattern.compile("^[ \\t]*[-*•–—\\d+.)]+[ \\t]*");
@@ -260,15 +261,27 @@ public class DeterministicRequirementsExtractor {
 
     private static String cleanHtml(String html) {
         if (html == null) return "";
-        String text = HTML_ENTITY_BR.matcher(html).replaceAll("\n");
+        String text = BR_TAG_PATTERN.matcher(html).replaceAll("\n");
+        text = BLOCK_TAG_PATTERN.matcher(text).replaceAll("\n");
         text = text.replace("&quot;", "\"")
                 .replace("&amp;", "&")
                 .replace("&nbsp;", " ")
                 .replace("&#39;", "'")
                 .replace("&gt;", ">")
                 .replace("&lt;", "<");
-        text = HTML_TAG_PATTERN.matcher(text).replaceAll(" ");
-        return MULTI_SPACE_PATTERN.matcher(text).replaceAll(" ").trim();
+        text = INLINE_TAG_PATTERN.matcher(text).replaceAll(" ");
+        String[] lines = text.split("\\r?\\n");
+        StringBuilder sb = new StringBuilder();
+        for (String line : lines) {
+            String trimmed = MULTI_SPACE_PATTERN.matcher(line).replaceAll(" ").trim();
+            if (!trimmed.isEmpty()) {
+                if (!sb.isEmpty()) {
+                    sb.append("\n");
+                }
+                sb.append(trimmed);
+            }
+        }
+        return sb.toString();
     }
 
     private static Map<String, String> splitSections(String rawHtml, String plainText) {
