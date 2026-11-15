@@ -115,6 +115,15 @@ public class VacancyDetailsDto {
     @JsonAlias("about_company")
     private String aboutCompany;
 
+    @JsonProperty("requirements")
+    private String requirements;
+
+    @JsonProperty("responsibilities")
+    private String responsibilities;
+
+    @JsonProperty("conditions")
+    private String conditions;
+
     @JsonProperty("source")
     private String source;
 
