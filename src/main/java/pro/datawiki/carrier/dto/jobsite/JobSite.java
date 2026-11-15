@@ -87,4 +87,69 @@ public interface JobSite {
      * Whether the portal provides candidate-recruiter messaging / chat.
      */
     boolean supportsChat();
+
+    /**
+     * Constructs search URL for discovering vacancies matching query.
+     */
+    String buildSearchUrl(String query, int page);
+
+    /**
+     * DOM selector for search vacancy card elements.
+     */
+    String getSearchCardsSelector();
+
+    /**
+     * DOM selector for search item vacancy title / link elements.
+     */
+    String getSearchItemTitleSelector();
+
+    /**
+     * DOM selector for vacancy title on details page.
+     */
+    String getVacancyTitleSelector();
+
+    /**
+     * DOM selector for employer/company name on details page.
+     */
+    String getCompanyNameSelector();
+
+    /**
+     * DOM selector for employer/company profile link on details page.
+     */
+    String getCompanyUrlSelector();
+
+    /**
+     * DOM selector for vacancy description container on details page.
+     */
+    String getDescriptionSelector();
+
+    /**
+     * DOM selector for required work experience on details page.
+     */
+    String getExperienceSelector();
+
+    /**
+     * DOM selector for employment mode / schedule on details page.
+     */
+    String getWorkConditionsSelector();
+
+    /**
+     * DOM selector for job location / address on details page.
+     */
+    String getLocationSelector();
+
+    /**
+     * DOM selector for key skill tags on details page.
+     */
+    String getSkillsSelector();
+
+    /**
+     * DOM selector for compensation / salary on details page.
+     */
+    String getSalarySelector();
+
+    /**
+     * DOM selector for the apply / respond button.
+     */
+    String getApplyButtonSelector();
 }
